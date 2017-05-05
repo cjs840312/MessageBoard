@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist --copy-files && webpack --config webpack.config"
+    "build": "babel src -d dist --copy-files && webpack --config webpack.config",
+    "webpack": " webpack --config webpack.config --watch",
+    "babel": "babel src -d dist --copy-files",
+    "start": "google-chrome 127.0.0.1:3000 && node dist/server.js "
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/cjs840312/MessageBoard#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
