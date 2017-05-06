@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './App.css'
 
 class App extends Component {
 
@@ -21,18 +22,19 @@ class App extends Component {
    }
 
    componentDidMount(){
-      setInterval(this.getMessage.bind(this),1000)
+      setInterval(this.getMessage.bind(this),500)
    }
 
 	render() {
 
 		return (
 			<div className="App">
+                <h1> Message Board </h1>
             <WritePlace/>
 
 				{
                this.state.Message.map((item) => (
-                  <MessageBlock key={item.time.second} time={item.time.date} content={item.content}/>
+                  <MessageBlock key={item.time} time={item.time} content={item.content}/>
                ))
             }
 			</div>
@@ -50,8 +52,8 @@ class MessageBlock extends Component {
    render() {
 
       return (
-         <div className="MessageBlock">
-            {this.props.time.minute}<br/>
+         <div className={style.MessageBlock}>
+            {this.props.time}<br/>
             {this.props.content}
          </div>
       );
@@ -81,7 +83,7 @@ class WritePlace extends Component {
           'Content-Type': 'application/json',
          },
           body: JSON.stringify({
-             "time":{"Month":d.getMonth()+1 ,"date":d.getDate(),"hour":d.getHours(),"minute":d.getMinutes(),"second":d.getTime()},
+             "time":d.toString(),
              "content": this.state.content,
          })
       })
