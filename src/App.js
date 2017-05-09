@@ -22,7 +22,7 @@ class App extends Component {
    }
 
    componentDidMount(){
-      setInterval(this.getMessage.bind(this),500)
+      setInterval(this.getMessage.bind(this),100)
    }
 
 	render() {
@@ -30,13 +30,13 @@ class App extends Component {
 		return (
 			<div className="App">
                 <h1> Message Board </h1>
-            <WritePlace/>
+                <WritePlace/>
 
-				{
-               this.state.Message.map((item) => (
-                  <MessageBlock key={item.time} time={item.time} content={item.content}/>
-               ))
-            }
+                {
+                    this.state.Message.map((item,index) => (
+                    <MessageBlock key={index} time={item.time} content={item.content}/>
+                ))
+                }
 			</div>
 		);
 	
@@ -92,8 +92,8 @@ class WritePlace extends Component {
    render() {
 
       return (
-         <div className="WritePlace">
-            <textarea onChange={ this.handleChange } />
+         <div className={style.WritePlace}>
+            <textarea className={style.WriteAera} onChange={ this.handleChange } />
             <button onClick={this.handleClick }>push</button>
          </div>
       );

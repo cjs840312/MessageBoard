@@ -1,9 +1,6 @@
-export default ({ body, title }) => {
+export default () => {
   return `
     <html>
-      <head>
-        <title>${title}</title>
-      </head>
       
       <body>
         <div id="root"></div>

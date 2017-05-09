@@ -17,9 +17,7 @@ server.listen(3000, function () {
 
 server.get('/', (req, res) => {
 
-  res.send(view({
-    title: 'Message Board'
-  }));
+  res.send(view());
 });
 
 server.get('/bundle.js', (req, res) => {
